@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/495929699g@gmail.com/RHCache'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '495929699g@gmail.com' => '495929699g@gmail.com' }
+  s.author           = { 'rongheng' => '495929699g@gmail.com' }
   s.source           = { :git => 'https://github.com/495929699g@gmail.com/RHCache.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
