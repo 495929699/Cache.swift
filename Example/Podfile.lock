@@ -1,0 +1,16 @@
+PODS:
+  - RHCache (0.1.0)
+
+DEPENDENCIES:
+  - RHCache (from `../`)
+
+EXTERNAL SOURCES:
+  RHCache:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RHCache: 149270b0f927e00efbd53491844eb06689e16b50
+
+PODFILE CHECKSUM: 66e0340dd4ade3b1ef902d1cf08a40f5dbc027e6
+
+COCOAPODS: 1.6.0
