@@ -11,7 +11,8 @@ import Foundation
 //MARK : - 缓存管理类
 public class RHCache {
     
-    static let shared = RHCache()
+    /// 单例对象
+    public static let shared = RHCache()
     
     private init() {}
     
@@ -28,7 +29,7 @@ public extension RHCache {
     }
     
     /// 异步获取缓存
-    func object<T : Codable>(for key: String, completion : @escaping (Result<T>) -> Void) {
+    func object<T : Codable>(_ type : T.Type, for key: String, completion : @escaping (Result<T>) -> Void) {
         do {
             try getStorage(T.self).async.object(forKey: key, completion: completion)
         } catch let error {

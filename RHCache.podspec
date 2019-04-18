@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RHCache'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Swift 缓存'
 
   s.description      = <<-DESC
@@ -19,11 +19,13 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'rongheng' => '495929699g@gmail.com' }
   s.source           = { :git => 'https://github.com/495929699/RHCache.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
   s.swift_version = '5.0'
   s.cocoapods_version = '>=1.6.0'
+  s.pod_target_xcconfig = {
+    'SWIFT_VERSION' => '5.0'
+  }
 
   s.source_files = 'RHCache/Classes/**/*.swift'
   
