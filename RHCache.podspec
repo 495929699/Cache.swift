@@ -8,17 +8,17 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RHCache'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Swift 缓存'
 
   s.description      = <<-DESC
   Swift缓存封装
                        DESC
 
-  s.homepage         = 'https://github.com/495929699g@gmail.com/RHCache'
+  s.homepage         = 'https://github.com/495929699/RHCache'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'rongheng' => '495929699g@gmail.com' }
-  s.source           = { :git => 'https://github.com/495929699g@gmail.com/RHCache.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/495929699/RHCache.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
