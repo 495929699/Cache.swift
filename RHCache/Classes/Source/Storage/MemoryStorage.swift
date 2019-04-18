@@ -3,7 +3,7 @@ import Foundation
 public class MemoryStorage<T>: StorageAware {
   fileprivate let cache = NSCache<NSString, MemoryCapsule>()
   // Memory cache keys
-  fileprivate var keys = Set<String>()
+  private(set) var keys = Set<String>()
   /// Configuration
   fileprivate let config: MemoryConfig
 
@@ -55,18 +55,6 @@ extension MemoryStorage {
 
     return Entry(object: object, expiry: capsule.expiry)
   }
-}
-
-extension MemoryStorage : StorageAllAware {
-    public func entrtyAll() -> [Entry<T>] {
-        var entrys : [Entry<T>] = []
-        for key in keys {
-            if let entry = try? entry(forKey: key) {
-                entrys.append(entry)
-            }
-        }
-        return entrys
-    }
 }
 
 public extension MemoryStorage {

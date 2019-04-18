@@ -29,13 +29,6 @@ extension AsyncStorage {
       }
     }
   }
-    
-    /// 查所有数据
-    public func entryAll(completion: @escaping ([Entry<T>]) -> Void) {
-        serialQueue.async { [weak self] in
-            completion(self?.innerStorage.entrtyAll() ?? [])
-        }
-    }
 
   public func removeObject(forKey key: String, completion: @escaping (Result<()>) -> Void) {
     serialQueue.async { [weak self] in

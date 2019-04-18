@@ -61,11 +61,22 @@ public extension RHCache {
     /// 异步查所有 T 类型的数据
     func objectAll<T : Codable>(_ type : T.Type, completion : @escaping ([T]) -> Void) {
         do {
-            try getStorage(type).async.entryAll(completion: { completion($0.map({ $0.object })) })
+            let asyncStorage = try getStorage(type).async
+            let memoryStorage = asyncStorage.innerStorage.memoryStorage
+            let diskStorage = asyncStorage.innerStorage.diskStorage
+            
+            asyncStorage.serialQueue.async {
+                let memoryAll = memoryStorage.entrtyAll().map({ $0.object })
+                if !memoryAll.isEmpty {
+                    completion(memoryAll)
+                } else {
+                    let diskAll = diskStorage.entrtyAll().map({ $0.object })
+                    completion(diskAll)
+                }
+            }
         } catch {
             completion([])
         }
-        
     }
     
 }
@@ -95,4 +106,40 @@ extension Storage where T: Codable {
             TransformerFactory.forCodable(ofType: T.self))
     }
     
+}
+
+// MARK: - 查询所有缓存
+protocol StorageAllAware {
+    associatedtype T
+    /**
+     查询所有数据
+     */
+    func entrtyAll() -> [Entry<T>]
+}
+
+extension DiskStorage : StorageAllAware {
+    func entrtyAll() -> [Entry<T>] {
+        var entrys : [Entry<T>] = []
+        guard let files = fileManager.subpaths(atPath: path) else { return entrys }
+        
+        for file in files {
+            if let entry = try? entry(forKey: "\(path)/\(file)") {
+                entrys.append(entry)
+            }
+        }
+        
+        return entrys
+    }
+}
+
+extension MemoryStorage : StorageAllAware {
+    func entrtyAll() -> [Entry<T>] {
+        var entrys : [Entry<T>] = []
+        for key in self.keys {
+            if let entry = try? entry(forKey: key) {
+                entrys.append(entry)
+            }
+        }
+        return entrys
+    }
 }
