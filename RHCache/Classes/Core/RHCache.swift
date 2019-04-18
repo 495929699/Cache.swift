@@ -31,7 +31,7 @@ public extension RHCache {
     /// 异步获取缓存
     func object<T : Codable>(_ type : T.Type, for key: String, completion : @escaping (Result<T>) -> Void) {
         do {
-            try getStorage(T.self).async.object(forKey: key, completion: completion)
+            try getStorage(type).async.object(forKey: key, completion: completion)
         } catch let error {
             completion(Result.failure(error))
         }
@@ -56,6 +56,16 @@ public extension RHCache {
     /// 删除指定缓存，同步
     func removeCachedObject<T : Codable>(_ type: T.Type, for key: String) throws {
         try getStorage(type).removeObject(forKey: key)
+    }
+    
+    /// 异步查所有 T 类型的数据
+    func objectAll<T : Codable>(_ type : T.Type, completion : @escaping ([T]) -> Void) {
+        do {
+            try getStorage(type).async.entryAll(completion: { completion($0.map({ $0.object })) })
+        } catch {
+            completion([])
+        }
+        
     }
     
 }
