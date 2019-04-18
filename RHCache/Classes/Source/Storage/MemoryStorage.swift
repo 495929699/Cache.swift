@@ -57,6 +57,18 @@ extension MemoryStorage {
   }
 }
 
+extension MemoryStorage : StorageAllAware {
+    public func entrtyAll() -> [Entry<T>] {
+        var entrys : [Entry<T>] = []
+        for key in keys {
+            if let entry = try? entry(forKey: key) {
+                entrys.append(entry)
+            }
+        }
+        return entrys
+    }
+}
+
 public extension MemoryStorage {
   func transform<U>() -> MemoryStorage<U> {
     let storage = MemoryStorage<U>(config: config)

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RHCache'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Swift 缓存'
 
   s.description      = <<-DESC

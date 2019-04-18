@@ -77,6 +77,17 @@ extension HybridStorage: StorageAware {
   }
 }
 
+extension HybridStorage : StorageAllAware {
+    public func entrtyAll() -> [Entry<T>] {
+        let memoryAll = memoryStorage.entrtyAll()
+        if !memoryAll.isEmpty {
+            return memoryAll
+        } else {
+            return diskStorage.entrtyAll()
+        }
+    }
+}
+
 public extension HybridStorage {
   func transform<U>(transformer: Transformer<U>) -> HybridStorage<U> {
     let storage = HybridStorage<U>(

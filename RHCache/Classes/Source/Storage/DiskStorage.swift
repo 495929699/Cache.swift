@@ -142,6 +142,21 @@ extension DiskStorage: StorageAware {
   }
 }
 
+extension DiskStorage : StorageAllAware {
+    public func entrtyAll() -> [Entry<T>] {
+        var entrys : [Entry<T>] = []
+        guard let files = fileManager.subpaths(atPath: path) else { return entrys }
+        
+        for file in files {
+            if let entry = try? entry(forKey: "\(path)/\(file)") {
+                entrys.append(entry)
+            }
+        }
+        
+        return entrys
+    }
+}
+
 extension DiskStorage {
   /**
    Sets attributes on the disk cache folder.

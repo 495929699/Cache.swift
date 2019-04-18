@@ -77,3 +77,12 @@ public extension StorageAware {
     }
   }
 }
+
+
+public protocol StorageAllAware {
+    associatedtype T
+    /**
+     查询所有数据
+     */
+    func entrtyAll() -> [Entry<T>]
+}
