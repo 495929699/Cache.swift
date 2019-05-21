@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Cache.swift'
-  s.version          = '0.1.3'
+  s.version          = '0.1.6'
   s.summary          = 'Swift 缓存'
 
   s.description      = <<-DESC
