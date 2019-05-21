@@ -9,10 +9,10 @@
 import Foundation
 
 //MARK : - 缓存管理类
-public class RHCache {
+public class Cache {
     
     /// 单例对象
-    public static let shared = RHCache()
+    public static let shared = Cache()
     
     private init() {}
     
@@ -21,7 +21,7 @@ public class RHCache {
 }
 
 //MARK : - 对象缓存
-public extension RHCache {
+public extension Cache {
     
     /// 同步获取缓存
     func object<T : Codable>(for key: String) throws -> T {
@@ -60,7 +60,7 @@ public extension RHCache {
     
 }
 
-extension RHCache {
+extension Cache {
     /// 获取存储对象，没有就创建
     func getStorage<T : Codable>(_ type : T.Type) throws -> Storage<T> {
         if let object = storageList["\(type)"],
