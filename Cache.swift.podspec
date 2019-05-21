@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Cache.swift'
-  s.version          = '0.1.6'
-  s.summary          = 'Swift 缓存'
+  s.version          = '0.1.7'
+  s.summary          = 'Swift 缓存库'
 
   s.description      = <<-DESC
-  Swift缓存封装
+  Swift Cache 缓存封装
                        DESC
 
   s.homepage         = 'https://github.com/495929699/Cache.swift'
@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
     'SWIFT_VERSION' => '5.0'
   }
 
-  s.source_files = 'RHCache/Classes/**/*.swift'
+  s.source_files = 'Cache/Classes/**/*.swift'
   
 end

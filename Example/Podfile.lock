@@ -1,16 +1,16 @@
 PODS:
-  - RHCache (0.1.0)
+  - Cache.swift (0.1.6)
 
 DEPENDENCIES:
-  - RHCache (from `../`)
+  - Cache.swift (from `../`)
 
 EXTERNAL SOURCES:
-  RHCache:
+  Cache.swift:
     :path: "../"
 
 SPEC CHECKSUMS:
-  RHCache: 149270b0f927e00efbd53491844eb06689e16b50
+  Cache.swift: 6833a239d412c538c39f92259191833cf3146fa5
 
-PODFILE CHECKSUM: 66e0340dd4ade3b1ef902d1cf08a40f5dbc027e6
+PODFILE CHECKSUM: dde630a392738ae9d99a135bf140e7405b30483d
 
 COCOAPODS: 1.6.0

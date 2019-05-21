@@ -271,13 +271,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RHCache_Example/Pods-RHCache_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RHCache/RHCache.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache.swift/Cache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RHCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

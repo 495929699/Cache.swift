@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'RHCache_Example' do
-  pod 'RHCache', :path => '../'
+  pod 'Cache.swift', :path => '../'
 
   target 'RHCache_Tests' do
     inherit! :search_paths
